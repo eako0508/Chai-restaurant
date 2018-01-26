@@ -126,11 +126,15 @@ describe('Restaurants API resource', function() {
           expect(res).to.have.status(200);
           // otherwise our db seeding didn't work
           expect(res.body.restaurants).to.have.length.of.at.least(1);
-          return Restaurant.count();
-        })
+          const nums = Restaurant.count();
+          expect(res.body.restaurants).to.have.length.of(nums);
+          //return Restaurant.count();
+        });
+        /*
         .then(function(count) {
           expect(res.body.restaurants).to.have.length.of(count);
         });
+        */
     });
 
 
