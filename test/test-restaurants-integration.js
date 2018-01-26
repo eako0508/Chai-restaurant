@@ -127,6 +127,7 @@ describe('Restaurants API resource', function() {
           // otherwise our db seeding didn't work
           expect(res.body.restaurants).to.have.length.of.at.least(1);
           const nums = Restaurant.count();
+          console.log(nums);
           expect(res.body.restaurants).to.have.length.of(nums);
           //return Restaurant.count();
         });
